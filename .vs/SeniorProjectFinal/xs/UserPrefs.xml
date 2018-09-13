@@ -1,7 +1,8 @@
 ﻿<Properties StartupConfiguration="{92F3BD30-0B93-3EB4-66C1-E3C2F3FA0614}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Standard Assets/Characters/FirstPersonCharacter/Scripts/HeadBob.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Creepy_Cat/_3D Scifi Kit Starter Kit/_Docs/Doc.txt">
     <Files>
       <File FileName="Assets/Standard Assets/Characters/FirstPersonCharacter/Scripts/HeadBob.cs" Line="1" Column="1" />
+      <File FileName="Assets/_Creepy_Cat/_3D Scifi Kit Starter Kit/_Docs/Doc.txt" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
