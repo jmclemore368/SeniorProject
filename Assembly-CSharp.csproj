@@ -158,7 +158,6 @@
     <None Include="Assets\Store\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfFieldScatter.shader" />
     <None Include="Assets\Store\Standard Assets\Effects\ImageEffects\Shaders\MotionBlur.shader" />
     <None Include="Assets\Store\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\MobileBloom.shader" />
-    <None Include="Assets\Store\_Creepy_Cat\_3D Scifi Kit Starter Kit\_Docs\Doc.txt" />
     <None Include="Assets\Store\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\MinMaxReduction.shader" />
     <None Include="Assets\Store\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\SSAA.shader" />
     <None Include="Assets\Store\Standard Assets\Effects\ImageEffects\Shaders\RadialBlur.shader" />
