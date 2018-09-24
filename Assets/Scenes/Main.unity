@@ -5240,7 +5240,7 @@ GameObject:
   - component: {fileID: 745434250}
   m_Layer: 0
   m_Name: 1Pistol
-  m_TagString: Untagged
+  m_TagString: Pistol
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5412,6 +5412,7 @@ GameObject:
   - component: {fileID: 818618887}
   - component: {fileID: 818618886}
   - component: {fileID: 818618885}
+  - component: {fileID: 818618888}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -5648,6 +5649,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &818618888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 818618883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09cfef64ee6e54fa6a2cdac8da59bd89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pistol: {fileID: 745434249}
+  assaultRifle: {fileID: 1513445812}
+  shotgun: {fileID: 1323763672}
 --- !u!1001 &820652185
 Prefab:
   m_ObjectHideFlags: 0
@@ -8485,7 +8500,7 @@ GameObject:
   - component: {fileID: 1323763673}
   m_Layer: 0
   m_Name: 3Shotgun
-  m_TagString: Untagged
+  m_TagString: Shotgun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9569,7 +9584,7 @@ GameObject:
   - component: {fileID: 1513445813}
   m_Layer: 0
   m_Name: 2AssaultRifle
-  m_TagString: Untagged
+  m_TagString: AssaultRifle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
