@@ -5238,6 +5238,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 745434250}
+  - component: {fileID: 745434251}
   m_Layer: 0
   m_Name: 1Pistol
   m_TagString: Pistol
@@ -5259,6 +5260,18 @@ Transform:
   m_Father: {fileID: 534669905}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &745434251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 745434249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 974e831cca10a4ad7a740c447f24263f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireRate: 0.6
 --- !u!1001 &757235946
 Prefab:
   m_ObjectHideFlags: 0
@@ -8498,6 +8511,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1323763673}
+  - component: {fileID: 1323763674}
   m_Layer: 0
   m_Name: 3Shotgun
   m_TagString: Shotgun
@@ -8519,6 +8533,18 @@ Transform:
   m_Father: {fileID: 534669905}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1323763674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1323763672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58ba6b9f378c742e89011b13a950aa94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireRate: 1
 --- !u!1001 &1327742173
 Prefab:
   m_ObjectHideFlags: 0
@@ -9582,6 +9608,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1513445813}
+  - component: {fileID: 1513445814}
   m_Layer: 0
   m_Name: 2AssaultRifle
   m_TagString: AssaultRifle
@@ -9603,6 +9630,18 @@ Transform:
   m_Father: {fileID: 534669905}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1513445814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1513445812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 714d217b9355245e7982b9dfd9833d41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireRate: 0.1
 --- !u!1001 &1515814039
 Prefab:
   m_ObjectHideFlags: 0
