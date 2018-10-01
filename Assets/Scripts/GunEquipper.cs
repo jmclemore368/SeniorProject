@@ -24,24 +24,28 @@ public class GunEquipper : MonoBehaviour {
         weapon.SetActive(true);
         activeGun = weapon;
     }
-	
-	// Update is called once per frame
+
+    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("1"))
+        // If not currently firing
+        if (!activeGun.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Fire"))
         {
-            loadWeapon(pistol);
-            activeWeaponType = Constants.Pistol;
-        }
-        else if (Input.GetKeyDown("2"))
-        {
-            loadWeapon(assaultRifle);
-            activeWeaponType = Constants.AssaultRifle;
-        }
-        else if (Input.GetKeyDown("3"))
-        {
-            loadWeapon(shotgun);
-            activeWeaponType = Constants.Shotgun;
+            if (Input.GetKeyDown("1"))
+            {
+                loadWeapon(pistol);
+                activeWeaponType = Constants.Pistol;
+            }
+            else if (Input.GetKeyDown("2"))
+            {
+                loadWeapon(assaultRifle);
+                activeWeaponType = Constants.AssaultRifle;
+            }
+            else if (Input.GetKeyDown("3"))
+            {
+                loadWeapon(shotgun);
+                activeWeaponType = Constants.Shotgun;
+            }
         }
     }
 

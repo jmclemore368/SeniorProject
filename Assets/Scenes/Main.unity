@@ -5239,6 +5239,7 @@ GameObject:
   m_Component:
   - component: {fileID: 745434250}
   - component: {fileID: 745434251}
+  - component: {fileID: 745434252}
   m_Layer: 0
   m_Name: 1Pistol
   m_TagString: Pistol
@@ -5271,7 +5272,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 974e831cca10a4ad7a740c447f24263f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 0.6
+  fireRate: 0.4
+--- !u!95 &745434252
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 745434249}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 349bbb71dbfb843a5b7caf18df594ba1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &757235946
 Prefab:
   m_ObjectHideFlags: 0
@@ -8512,6 +8531,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1323763673}
   - component: {fileID: 1323763674}
+  - component: {fileID: 1323763675}
   m_Layer: 0
   m_Name: 3Shotgun
   m_TagString: Shotgun
@@ -8526,8 +8546,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1323763672}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.34, y: -0.33, z: 0.6}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalPosition: {x: 0.34, y: -0.33, z: 0.7}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_Children:
   - {fileID: 1989407213}
   m_Father: {fileID: 534669905}
@@ -8545,6 +8565,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireRate: 1
+--- !u!95 &1323763675
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1323763672}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b96784f731b874a5190b772463a30ae9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1327742173
 Prefab:
   m_ObjectHideFlags: 0
@@ -9609,6 +9647,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1513445813}
   - component: {fileID: 1513445814}
+  - component: {fileID: 1513445815}
   m_Layer: 0
   m_Name: 2AssaultRifle
   m_TagString: AssaultRifle
@@ -9623,7 +9662,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1513445812}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.34, y: -0.33, z: 0.6}
+  m_LocalPosition: {x: 0.34, y: -0.33, z: 0.7}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 154099406}
@@ -9642,6 +9681,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireRate: 0.1
+--- !u!95 &1513445815
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1513445812}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ea9ecbe77e4994b7a992cb054ef32854, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1515814039
 Prefab:
   m_ObjectHideFlags: 0
