@@ -5476,23 +5476,7 @@ Prefab:
       propertyPath: m_Name
       value: Alien
       objectReference: {fileID: 0}
-    - target: {fileID: 195421250230824224, guid: e5836d050fdb354479bcd0d285bf2f22,
-        type: 2}
-      propertyPath: m_Height
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 195421250230824224, guid: e5836d050fdb354479bcd0d285bf2f22,
-        type: 2}
-      propertyPath: m_Radius
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 195421250230824224, guid: e5836d050fdb354479bcd0d285bf2f22,
-        type: 2}
-      propertyPath: m_BaseOffset
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 136056231676851076, guid: e5836d050fdb354479bcd0d285bf2f22, type: 2}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5836d050fdb354479bcd0d285bf2f22, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &818618883
