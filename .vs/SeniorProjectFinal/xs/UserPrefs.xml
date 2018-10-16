@@ -1,9 +1,9 @@
 ﻿<Properties StartupConfiguration="{3CDED23E-B2AF-276A-C6C2-EFEEA704A3D7}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Store/Easy Weapons/Scripts/Weapon.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Store/Easy Weapons/Editor/WeaponEditor.cs">
     <Files>
-      <File FileName="Assets/Store/Easy Weapons/Scripts/Weapon.cs" Line="83" Column="5" />
-      <File FileName="Assets/Scripts/NewAlien.cs" Line="60" Column="39" />
+      <File FileName="Assets/Store/Easy Weapons/Scripts/Weapon.cs" Line="1066" Column="3" />
+      <File FileName="Assets/Scripts/NewAlien.cs" Line="11" Column="45" />
       <File FileName="Assets/Store/Easy Weapons/Scripts/Explosion.cs" Line="1" Column="1" />
       <File FileName="Assets/Store/Easy Weapons/Scripts/Health.cs" Line="1" Column="1" />
       <File FileName="Assets/Store/Easy Weapons/Scripts/BulletHolePool.cs" Line="1" Column="1" />
@@ -15,6 +15,9 @@
       <File FileName="Assets/Store/Standard Assets/CrossPlatformInput/Scripts/TiltInput.cs" Line="105" Column="18" />
       <File FileName="Assets/Store/Easy Weapons/Scripts/Projectile.cs" Line="1" Column="1" />
       <File FileName="Assets/Store/Easy Weapons/Scripts/WeaponSystem.cs" Line="1" Column="1" />
+      <File FileName="Assets/Store/Easy Weapons/Scripts/TimedObjectDestroyer.cs" Line="1" Column="1" />
+      <File FileName="Assets/Store/Easy Weapons/Scripts/BombFragment.cs" Line="1" Column="1" />
+      <File FileName="Assets/Store/Easy Weapons/Editor/WeaponEditor.cs" Line="17" Column="16" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

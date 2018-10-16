@@ -299,8 +299,8 @@ public class Weapon : MonoBehaviour
 		}
 
 		// Reload if the weapon is out of ammo
-        if (reloadAutomatically && currentAmmo <= 0) {}
-			// Reload();
+        if (reloadAutomatically && currentAmmo <= 0)
+			Reload();
 
 		// Recoil Recovery
 		if (playerWeapon && recoil && type != WeaponType.Beam)
@@ -414,8 +414,8 @@ public class Weapon : MonoBehaviour
 		}
 
 		// Reload if the "Reload" button is pressed
-        if (Input.GetButtonDown("Reload")) {}
-			// Reload();
+        if (Input.GetButtonDown("Reload"))
+			Reload();
 
 		// If the weapon is semi-auto and the user lets up on the button, set canFire to true
 		if (Input.GetButtonUp("Fire1"))
