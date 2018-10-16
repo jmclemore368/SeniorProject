@@ -68,6 +68,8 @@ public class SmartBulletHoleGroup
 // The Weapon class itself handles the weapon mechanics
 public class Weapon : MonoBehaviour
 {
+
+
 	// Weapon Type
 	public WeaponType type = WeaponType.Projectile;		// Which weapon system should be used
 	
@@ -208,7 +210,6 @@ public class Weapon : MonoBehaviour
 	// Other
 	private bool canFire = true;						// Whether or not the weapon can currently fire (used for semi-auto weapons)
 
-
 	// Use this for initialization
 	void Start()
 	{
@@ -298,8 +299,8 @@ public class Weapon : MonoBehaviour
 		}
 
 		// Reload if the weapon is out of ammo
-		if (reloadAutomatically && currentAmmo <= 0)
-			Reload();
+        if (reloadAutomatically && currentAmmo <= 0) {}
+			// Reload();
 
 		// Recoil Recovery
 		if (playerWeapon && recoil && type != WeaponType.Beam)
@@ -413,8 +414,8 @@ public class Weapon : MonoBehaviour
 		}
 
 		// Reload if the "Reload" button is pressed
-		if (Input.GetButtonDown("Reload"))
-			Reload();
+        if (Input.GetButtonDown("Reload")) {}
+			// Reload();
 
 		// If the weapon is semi-auto and the user lets up on the button, set canFire to true
 		if (Input.GetButtonUp("Fire1"))
@@ -444,7 +445,7 @@ public class Weapon : MonoBehaviour
 		{
 			if (fireTimer >= actualROF && canFire)
 			{
-				StartCoroutine(DelayLaunch());
+                StartCoroutine(DelayLaunch());
 			}
 		}
 		// Reset the Burst

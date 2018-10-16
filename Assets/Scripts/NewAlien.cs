@@ -12,7 +12,13 @@ public class NewAlien : MonoBehaviour {
     private Transform player; // Ref to the player which the alien tries to find ******
     private float timeLastFired; // ****
     private bool isDead; // If the alien is alive or not ****
+
+
+
     public Animator alien; // For playing animations
+    public GameObject weapon; // To fire weapon
+
+
 
 	// Use this for initialization
 	void Start () {
@@ -31,7 +37,7 @@ public class NewAlien : MonoBehaviour {
         }
         transform.LookAt(player); // Alien faces player
         agent.SetDestination(player.position); // Alien uses Nav Mesh to find player
-
+       
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
         bool alienIsWithinFiringRange = distanceToPlayer < firingRange;
         float timeSinceLastFired = Time.time - timeLastFired;
@@ -46,6 +52,7 @@ public class NewAlien : MonoBehaviour {
 
     private void fire()
     {
+        weapon.GetComponent<Weapon>().AIFiring();
         alien.Play("fire");
     }
 }
