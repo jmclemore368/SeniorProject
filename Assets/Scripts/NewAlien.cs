@@ -3,38 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class NewAlien : MonoBehaviour {
-
-    public int health; // HP of the alien ******
+    
     public int firingRange; // How far the alien must be before shooting its gun
     public float firingRate; // How fast the alien can fire its gun
     public Transform firingLocation;  // Coordinate on model where bullets fire
+    private float timeLastFired;
     UnityEngine.AI.NavMeshAgent agent; // Ref to the NavMesh Agent component ******
     private Transform player; // Ref to the player which the alien tries to find ******
-    private float timeLastFired; // ****
-    private bool isDead; // If the alien is alive or not ****
-
-
-
     public Animator alien; // For playing animations
     public GameObject weapon; // To fire weapon
 
 
 
+    private string[] getHitAnimations = { "hitRight", "hitLeft"};
+
+
 	// Use this for initialization
 	void Start () {
-        // Alien is alive by default.
-        // Set refs to the NavMesh Agent and Player component  
-        isDead = false;
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (isDead)
-        {
-            return;
-        }
         transform.LookAt(player); // Alien faces player
         agent.SetDestination(player.position); // Alien uses Nav Mesh to find player
        
@@ -54,5 +45,18 @@ public class NewAlien : MonoBehaviour {
     {
         weapon.GetComponent<Weapon>().AIFiring();
         alien.Play("fire");
+    }
+
+    void getHit()
+    {
+        // pick & play a random anim from the array,
+        // excluding anim at index 0
+        int n = Random.Range(1, getHitAnimations.Length);
+        string randomAnim = getHitAnimations[n];
+        alien.Play(randomAnim);
+
+        // move picked sound to index 0 so it's not picked next time
+        getHitAnimations[n] = getHitAnimations[0];
+        getHitAnimations[0] = randomAnim;
     }
 }
