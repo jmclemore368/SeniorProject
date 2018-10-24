@@ -617,9 +617,6 @@ public class Weapon : MonoBehaviour
 				// Damage
 				hit.collider.gameObject.SendMessageUpwards("ChangeHealth", -damage, SendMessageOptions.DontRequireReceiver);
 
-                // Play get hit animation
-                hit.collider.gameObject.SendMessageUpwards("getHit", SendMessageOptions.DontRequireReceiver);
-
 				if (shooterAIEnabled)
 				{
 					hit.transform.SendMessageUpwards("Damage", damage / 100, SendMessageOptions.DontRequireReceiver);

@@ -36,16 +36,22 @@ public class Health : MonoBehaviour
 
 	public void ChangeHealth(float amount)
 	{
-		// Change the health by the amount specified in the amount variable
-		currentHealth += amount;
+        // Change the health by the amount specified in the amount variable
+        currentHealth += amount;
 
 		// If the health runs out, then Die.
-		if (currentHealth <= 0 && !dead && canDie)
+		if (currentHealth <= 0 && !dead && canDie) 
 			Die();
-
 		// Make sure that the health never exceeds the maximum health
-		else if (currentHealth > maxHealth)
-			currentHealth = maxHealth;
+        else if (currentHealth > maxHealth) {
+            currentHealth = maxHealth;
+        }
+
+        // Play hit animation
+        if (currentHealth > 0 && !dead) {
+            Debug.Log(currentHealth);
+            SendMessageUpwards("getHit", SendMessageOptions.DontRequireReceiver);
+        }
 	}
 
 	public void Die()
@@ -53,11 +59,13 @@ public class Health : MonoBehaviour
 		// This GameObject is officially dead.  This is used to make sure the Die() function isn't called again
 		dead = true;
 
-		// Make death effects
+        Debug.Log("Die start: " + Time.time); 
 		if (replaceWhenDead)
 			Instantiate(deadReplacement, transform.position, transform.rotation);
 		if (makeExplosion)
 			Instantiate(explosion, transform.position, transform.rotation);
+
+        Debug.Log("Die end: " + Time.time);
 
 		if (isPlayer && deathCam != null)
 			deathCam.SetActive(true);
