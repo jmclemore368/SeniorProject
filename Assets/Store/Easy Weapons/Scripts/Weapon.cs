@@ -210,9 +210,20 @@ public class Weapon : MonoBehaviour
 	// Other
 	private bool canFire = true;						// Whether or not the weapon can currently fire (used for semi-auto weapons)
 
+    private int ammoReserve = 0;
+
+    public bool PickupAmmo() {
+        if (ammoReserve >= ammoCapacity) 
+        {
+            return false;
+        }
+        ammoReserve = ammoCapacity;
+        return true;
+    }
+
 	// Use this for initialization
 	void Start()
-	{
+    {
 		// Calculate the actual ROF to be used in the weapon systems.  The rateOfFire variable is
 		// designed to make it easier on the user - it represents the number of rounds to be fired
 		// per second.  Here, an actual ROF decimal value is calculated that can be used with timers.
@@ -555,11 +566,15 @@ public class Weapon : MonoBehaviour
 		// Ammo Display
 		if (showCurrentAmmo)
 		{
-			if (type == WeaponType.Raycast || type == WeaponType.Projectile)
-				GUI.Label(new Rect(10, Screen.height - 30, 100, 20), "Ammo: " + currentAmmo);
+            if (type == WeaponType.Raycast || type == WeaponType.Projectile)
+            {
+                GUI.Label(new Rect(10, Screen.height - 40, 100, 20), "Ammo:   " + currentAmmo + " / " + ammoCapacity);
+                GUI.Label(new Rect(10, Screen.height - 20, 100, 20), "Backup: " + ammoReserve);
+            }
 			else if (type == WeaponType.Beam)
 				GUI.Label(new Rect(10, Screen.height - 30, 100, 20), "Heat: " + (int)(beamHeat * 100) + "/" + (int)(maxBeamHeat * 100));
 		}
+
 	}
 
 
@@ -584,9 +599,10 @@ public class Weapon : MonoBehaviour
 		}
 
 		// Subtract 1 from the current ammo
-		if (!infiniteAmmo)
-			currentAmmo--;
-        
+        if (!infiniteAmmo) {
+            currentAmmo--;
+        }
+
 		// Fire once for each shotPerRound value
 		for (int i = 0; i < shotPerRound; i++)
 		{
@@ -824,9 +840,10 @@ public class Weapon : MonoBehaviour
 		}
 
 		// Subtract 1 from the current ammo
-		if (!infiniteAmmo)
-			currentAmmo--;
-		
+        if (!infiniteAmmo) {
+            currentAmmo--;
+        }
+
 		// Fire once for each shotPerRound value
 		for (int i = 0; i < shotPerRound; i++)
 		{
@@ -1056,9 +1073,19 @@ public class Weapon : MonoBehaviour
 	// Reload the weapon
 	void Reload()
 	{
-		currentAmmo = ammoCapacity;
-		fireTimer = -reloadTime;
-		GetComponent<AudioSource>().PlayOneShot(reloadSound);
+        if (ammoReserve <= 0 || currentAmmo == ammoCapacity)
+            return;
+
+        int toCapacity = ammoCapacity - currentAmmo;
+        int ammoNeeded = Mathf.Min(ammoReserve, toCapacity);
+
+        currentAmmo += ammoNeeded;
+        ammoReserve -= ammoNeeded;
+
+        if (isActiveAndEnabled) {
+            fireTimer = -reloadTime;
+            GetComponent<AudioSource>().PlayOneShot(reloadSound);
+        }
 
 		// Send a messsage so that users can do other actions whenever this happens
 		SendMessageUpwards("OnEasyWeaponsReload", SendMessageOptions.DontRequireReceiver);

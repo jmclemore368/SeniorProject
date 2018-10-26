@@ -14,6 +14,17 @@ public class WeaponSystem : MonoBehaviour
 	public int startingWeaponIndex = 0;			// The weapon index that the player will start with
 	private int weaponIndex;					// The current index of the active weapon
 
+    public bool DoWeaponsNeedAmmo() 
+    {
+        bool anyNeedAmmo = false;
+        for (int i = 0; i < weapons.Length; i++)
+        {
+            Weapon weapon = weapons[i].GetComponent<Weapon>();
+            bool currNeedAmmo = weapon.PickupAmmo();
+            anyNeedAmmo = anyNeedAmmo || currNeedAmmo;
+        }
+        return anyNeedAmmo;
+    }
 
 	// Use this for initialization
 	void Start()

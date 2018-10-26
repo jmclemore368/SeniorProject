@@ -59,13 +59,10 @@ public class Health : MonoBehaviour
 		// This GameObject is officially dead.  This is used to make sure the Die() function isn't called again
 		dead = true;
 
-        Debug.Log("Die start: " + Time.time); 
 		if (replaceWhenDead)
 			Instantiate(deadReplacement, transform.position, transform.rotation);
 		if (makeExplosion)
 			Instantiate(explosion, transform.position, transform.rotation);
-
-        Debug.Log("Die end: " + Time.time);
 
 		if (isPlayer && deathCam != null)
 			deathCam.SetActive(true);
