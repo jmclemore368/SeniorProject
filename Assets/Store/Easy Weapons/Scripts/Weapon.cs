@@ -538,6 +538,8 @@ public class Weapon : MonoBehaviour
 	void OnGUI()
 	{
 
+        //Debug.Log("calling GUI");
+
 		// Crosshairs
 		if (type == WeaponType.Projectile || type == WeaponType.Beam)
 		{
@@ -581,6 +583,7 @@ public class Weapon : MonoBehaviour
 	// Raycasting system
 	void Fire()
 	{
+
 		// Reset the fireTimer to 0 (for ROF)
 		fireTimer = 0.0f;
 
@@ -631,7 +634,9 @@ public class Weapon : MonoBehaviour
 				}
 				
 				// Damage
-				hit.collider.gameObject.SendMessageUpwards("ChangeHealth", -damage, SendMessageOptions.DontRequireReceiver);
+				hit.collider.gameObject.SendMessageUpwards("ChangeHealth", 
+                                                           new DamageInfo(-damage, transform.root.gameObject),
+                                                           SendMessageOptions.DontRequireReceiver);
 
 				if (shooterAIEnabled)
 				{
@@ -850,7 +855,8 @@ public class Weapon : MonoBehaviour
 			// Instantiate the projectile
 			if (projectile != null)
 			{
-				GameObject proj = Instantiate(projectile, projectileSpawnSpot.position, projectileSpawnSpot.rotation) as GameObject;
+                Projectile proj = Instantiate(projectile, projectileSpawnSpot.transform.position, projectileSpawnSpot.transform.rotation).GetComponent<Projectile>();
+                proj.Initialize(transform.root.gameObject);
 
 				// Warmup heat
 				if (warmup)
@@ -970,7 +976,9 @@ public class Weapon : MonoBehaviour
 				}
 
 				// Damage
-				hit.collider.gameObject.SendMessageUpwards("ChangeHealth", -beamPower, SendMessageOptions.DontRequireReceiver);
+				hit.collider.gameObject.SendMessageUpwards("ChangeHealth", 
+                                                           new DamageInfo(-beamPower, transform.root.gameObject),
+                                                           SendMessageOptions.DontRequireReceiver);
 
 				// Shooter AI support
 				if (shooterAIEnabled)

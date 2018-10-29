@@ -22,6 +22,13 @@ public class Explosion : MonoBehaviour
 	public bool causeDamage = true;				// Whether or not the explosion should apply damage to nearby GameObjects with the Heatlh component
 	public float damage = 10.0f;				// The multiplier by which the ammount of damage to be applied is determined
 
+    private GameObject spawnedFrom;
+
+    public void Initialize(GameObject from)
+    {
+        this.spawnedFrom = from;
+    }
+
 	IEnumerator Start()
 	{
 		// Wait one frame so that explosion force will be applied to debris which
@@ -39,7 +46,9 @@ public class Explosion : MonoBehaviour
 				float damageAmount = damage * (1 / Vector3.Distance(transform.position, col.transform.position));
 
 				// The Easy Weapons health system
-				col.GetComponent<Collider>().gameObject.SendMessageUpwards("ChangeHealth", -damageAmount, SendMessageOptions.DontRequireReceiver);
+				col.GetComponent<Collider>().gameObject.SendMessageUpwards("ChangeHealth", 
+                                                                           new DamageInfo(-damageAmount, spawnedFrom),
+                                                                           SendMessageOptions.DontRequireReceiver);
 
 				// The Shooter AI health system
 				if (shooterAISupport)

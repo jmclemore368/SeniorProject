@@ -34,14 +34,16 @@ public class Health : MonoBehaviour
 		currentHealth = startingHealth;
 	}
 
-	public void ChangeHealth(float amount)
+    public void ChangeHealth(DamageInfo damageInfo)
 	{
+        Debug.Log(transform.root + " hit by " + damageInfo.from + " for " + damageInfo.amount);
+
         // Change the health by the amount specified in the amount variable
-        currentHealth += amount;
+        currentHealth += damageInfo.amount;
 
 		// If the health runs out, then Die.
 		if (currentHealth <= 0 && !dead && canDie) 
-			Die();
+            Die(damageInfo.from);
 		// Make sure that the health never exceeds the maximum health
         else if (currentHealth > maxHealth) {
             currentHealth = maxHealth;
@@ -54,8 +56,15 @@ public class Health : MonoBehaviour
         }
 	}
 
-	public void Die()
+    public void Die(GameObject from = null)
 	{
+        // Set death cam to the killer
+        if (from != null) {
+            deathCam = from.GetComponentInChildren<Camera>().gameObject;
+            gameObject.GetComponentInChildren<Weapon>().showCrosshair = false;
+            from.GetComponent<Animator>().Play("pose");
+        }
+
 		// This GameObject is officially dead.  This is used to make sure the Die() function isn't called again
 		dead = true;
 

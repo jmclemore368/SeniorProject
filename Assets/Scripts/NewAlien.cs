@@ -26,18 +26,20 @@ public class NewAlien : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        transform.LookAt(player); // Alien faces player
-        agent.SetDestination(player.position); // Alien uses Nav Mesh to find player
-       
-        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-        bool alienIsWithinFiringRange = distanceToPlayer < firingRange;
-        float timeSinceLastFired = Time.time - timeLastFired;
-        bool alienCanFireAgain = timeSinceLastFired > firingRate;
+        if (player != null) {
+            transform.LookAt(player); // Alien faces player
+            agent.SetDestination(player.position); // Alien uses Nav Mesh to find player
 
-        if (alienIsWithinFiringRange && alienCanFireAgain)
-        {
-            timeLastFired = Time.time;
-            fire();
+            float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+            bool alienIsWithinFiringRange = distanceToPlayer < firingRange;
+            float timeSinceLastFired = Time.time - timeLastFired;
+            bool alienCanFireAgain = timeSinceLastFired > firingRate;
+
+            if (alienIsWithinFiringRange && alienCanFireAgain)
+            {
+                timeLastFired = Time.time;
+                fire();
+            }
         }
 	}
 

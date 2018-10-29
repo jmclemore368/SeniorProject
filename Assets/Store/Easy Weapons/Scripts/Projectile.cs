@@ -31,7 +31,7 @@ public class Projectile : MonoBehaviour
 	public float lifetime = 30.0f;										// The maximum time (in seconds) before the projectile is destroyed
 	
 	public float seekRate = 1.0f;										// The rate at which the projectile will turn to seek enemies
-	public string seekTag = "Enemy";									// The projectile will seek gameobjects with this tag
+	public string seekTag = "";									        // The projectile will seek gameobjects with this tag
 	public GameObject explosion;										// The explosion to be instantiated when this projectile hits something
 	public float targetListUpdateRate = 1.0f;							// The rate at which the projectile will update its list of all enemies to target
 
@@ -44,14 +44,19 @@ public class Projectile : MonoBehaviour
 	private float targetListUpdateTimer = 0.0f;							// The timer to keep track of how long it's been since the enemy list was last updated
 	private GameObject[] enemyList;										// An array to hold possible targets
 
+    private GameObject spawnedFrom;
+
+    public void Initialize(GameObject from) {
+        this.spawnedFrom = from;
+    }
 
 	void Start()
 	{
 		// Initialize the enemy list
 		UpdateEnemyList();
 
-		// Add the initial force to rigidbody
-		GetComponent<Rigidbody>().AddRelativeForce(0, 0, initialForce);
+        // Add the initial force to rigidbody
+        GetComponent<Rigidbody>().AddRelativeForce(0, 0, initialForce);
 	}
 
 	// Update is called once per frame
@@ -128,7 +133,9 @@ public class Projectile : MonoBehaviour
 		// Apply damage to the hit object if damageType is set to Direct
 		if (damageType == DamageType.Direct)
 		{
-			col.collider.gameObject.SendMessageUpwards("ChangeHealth", -damage, SendMessageOptions.DontRequireReceiver);
+            col.collider.gameObject.SendMessageUpwards("ChangeHealth", 
+                                                       new DamageInfo(-damage, spawnedFrom),
+                                                       SendMessageOptions.DontRequireReceiver);
 
 			//call the ApplyDamage() function on the enenmy CharacterSetup script
 			if (col.collider.gameObject.layer == LayerMask.NameToLayer("Limb"))
@@ -153,7 +160,8 @@ public class Projectile : MonoBehaviour
 		// Instantiate the explosion
 		if (explosion != null)
 		{
-			Instantiate(explosion, position, Quaternion.identity);
+            Explosion exp = Instantiate(explosion, position, Quaternion.identity).GetComponent<Explosion>();
+            exp.Initialize(spawnedFrom);
 		}
 
 		// Cluster bombs
