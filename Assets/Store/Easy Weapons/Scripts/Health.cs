@@ -27,6 +27,28 @@ public class Health : MonoBehaviour
 
 	private bool dead = false;					// Used to make sure the Die() function isn't called twice
 
+    private float armor = 100.0f;
+    private float maxArmor = 500.0f;
+    public bool PickupArmor()
+    {
+        if (armor >= maxArmor) {
+            return false;
+        }
+        armor = maxArmor;
+        return true;
+    }
+
+
+	private void OnGUI()
+	{
+        if (isPlayer) {
+            GUI.Label(new Rect(10, Screen.height - 80, 100, 20), "Health: " + (int) currentHealth);
+            GUI.Label(new Rect(10, Screen.height - 60, 100, 20), "Armor: " + (int) armor);
+        }
+	}
+
+
+
 	// Use this for initialization
 	void Start()
 	{
@@ -39,7 +61,17 @@ public class Health : MonoBehaviour
         Debug.Log(transform.root + " hit by " + damageInfo.from + " for " + damageInfo.amount);
 
         // Change the health by the amount specified in the amount variable
-        currentHealth += damageInfo.amount;
+        if (armor > 0)
+        {
+            float diff = armor + damageInfo.amount;
+            armor -= Mathf.Min(armor, -damageInfo.amount);
+            if (diff < 0)
+            {
+                currentHealth += diff;
+            }
+        } else {
+            currentHealth += damageInfo.amount;
+        }
 
 		// If the health runs out, then Die.
 		if (currentHealth <= 0 && !dead && canDie) 
@@ -51,19 +83,13 @@ public class Health : MonoBehaviour
 
         // Play hit animation
         if (currentHealth > 0 && !dead) {
-            Debug.Log(currentHealth);
             SendMessageUpwards("getHit", SendMessageOptions.DontRequireReceiver);
         }
 	}
 
     public void Die(GameObject from = null)
 	{
-        // Set death cam to the killer
-        if (from != null) {
-            deathCam = from.GetComponentInChildren<Camera>().gameObject;
-            gameObject.GetComponentInChildren<Weapon>().showCrosshair = false;
-            from.GetComponent<Animator>().Play("pose");
-        }
+        Debug.Log(gameObject + " has died!");
 
 		// This GameObject is officially dead.  This is used to make sure the Die() function isn't called again
 		dead = true;
@@ -72,6 +98,18 @@ public class Health : MonoBehaviour
 			Instantiate(deadReplacement, transform.position, transform.rotation);
 		if (makeExplosion)
 			Instantiate(explosion, transform.position, transform.rotation);
+
+
+        // Set death cam to the killer
+        /* ======
+        // Edge case - Kill each other then there is no camera
+        ======= */
+        if (from != null && from != GameObject.FindWithTag("Player"))
+        {
+            deathCam = from.GetComponentInChildren<Camera>().gameObject;
+            gameObject.GetComponentInChildren<Weapon>().showCrosshair = false;
+            from.GetComponent<Animator>().Play("pose");
+        }
 
 		if (isPlayer && deathCam != null)
 			deathCam.SetActive(true);

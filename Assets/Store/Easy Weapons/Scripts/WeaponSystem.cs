@@ -14,7 +14,7 @@ public class WeaponSystem : MonoBehaviour
 	public int startingWeaponIndex = 0;			// The weapon index that the player will start with
 	private int weaponIndex;					// The current index of the active weapon
 
-    public bool DoWeaponsNeedAmmo() 
+    public bool PickupAmmo() 
     {
         bool anyNeedAmmo = false;
         for (int i = 0; i < weapons.Length; i++)
