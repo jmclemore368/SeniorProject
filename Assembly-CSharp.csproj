@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\Old\Pistol.cs" />
     <Compile Include="Assets\Scripts\Old\Shotgun.cs" />
     <Compile Include="Assets\Scripts\Pickup.cs" />
+    <Compile Include="Assets\Scripts\PickupSpawner.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Store\Easy Weapons\Scripts\BombFragment.cs" />
     <Compile Include="Assets\Store\Easy Weapons\Scripts\BulletHole.cs" />

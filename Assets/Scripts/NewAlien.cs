@@ -25,7 +25,6 @@ public class NewAlien : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
         if (player != null) {
             transform.LookAt(player); // Alien faces player
             agent.SetDestination(player.position); // Alien uses Nav Mesh to find player
@@ -40,6 +39,10 @@ public class NewAlien : MonoBehaviour {
                 timeLastFired = Time.time;
                 fire();
             }
+        }
+        else {
+            agent.isStopped = true;
+            transform.LookAt(Vector3.zero);
         }
 	}
 

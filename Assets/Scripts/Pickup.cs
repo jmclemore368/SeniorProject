@@ -21,8 +21,10 @@ public class Pickup : MonoBehaviour {
         if (collider.gameObject.GetComponent<Player>() != null
           && collider.gameObject.tag == "Player")
         {
-            if (collider.gameObject.GetComponent<Player>().pickupItem(type))
+            if (collider.gameObject.GetComponent<Player>().pickupItem(type)) {
+                GetComponentInParent<PickupSpawner>().didPickup();
                 Destroy(gameObject);
+            }
         }
     }
 }
