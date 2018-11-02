@@ -22,7 +22,7 @@ public class Pickup : MonoBehaviour {
           && collider.gameObject.tag == "Player")
         {
             if (collider.gameObject.GetComponent<Player>().pickupItem(type)) {
-                GetComponentInParent<PickupSpawner>().didPickup();
+                GetComponentInParent<PickupSpawnPoint>().didPickup();
                 Destroy(gameObject);
             }
         }
