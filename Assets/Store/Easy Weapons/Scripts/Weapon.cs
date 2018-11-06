@@ -292,8 +292,7 @@ public class Weapon : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update()
-	{
-		
+    {
 		// Calculate the current accuracy for this weapon
 		currentAccuracy = Mathf.Lerp(currentAccuracy, accuracy, accuracyRecoverRate * Time.deltaTime);
 
@@ -332,6 +331,14 @@ public class Weapon : MonoBehaviour
 	// Checks for user input to use the weapons - only if this weapon is player-controlled
 	void CheckForUserInput()
 	{
+        if (Input.GetButton("Fire2"))
+        {
+            SendMessageUpwards("Zoom", SendMessageOptions.DontRequireReceiver);
+        }
+        else
+        {
+            Camera.main.fieldOfView = Constants.CameraDefaultZoom;
+        }
 
 		// Fire if this is a raycast type weapon and the user presses the fire button
 		if (type == WeaponType.Raycast)

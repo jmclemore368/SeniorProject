@@ -43,6 +43,7 @@ public class NewAlien : MonoBehaviour {
         else {
             agent.isStopped = true;
             transform.LookAt(Vector3.zero);
+            alien.Play("pose");
         }
 	}
 

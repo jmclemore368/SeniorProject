@@ -103,12 +103,12 @@ public class Health : MonoBehaviour
         // Set death cam to the killer
         /* ======
         // Edge case - Kill each other then there is no camera
+        // Also pose not always working
         ======= */
         if (from != null && from != GameObject.FindWithTag("Player"))
         {
             deathCam = from.GetComponentInChildren<Camera>().gameObject;
             gameObject.GetComponentInChildren<Weapon>().showCrosshair = false;
-            from.GetComponent<Animator>().Play("pose");
         }
 
 		if (isPlayer && deathCam != null)

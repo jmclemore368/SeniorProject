@@ -1,11 +1,10 @@
 ﻿<Properties StartupConfiguration="{3CDED23E-B2AF-276A-C6C2-EFEEA704A3D7}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameUI.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Gun.cs">
     <Files>
       <File FileName="Assets/Scripts/AlienSpawnPoint.cs" Line="15" Column="21" />
-      <File FileName="Assets/Scripts/GameController.cs" Line="26" Column="5" />
-      <File FileName="Assets/Scripts/PickupSpawnPoint.cs" Line="20" Column="42" />
-      <File FileName="Assets/Scripts/GameUI.cs" Line="5" Column="1" />
+      <File FileName="Assets/Store/Easy Weapons/Scripts/Weapon.cs" Line="352" Column="14" />
+      <File FileName="Assets/Scripts/Gun.cs" Line="15" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
