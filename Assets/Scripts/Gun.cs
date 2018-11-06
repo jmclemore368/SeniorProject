@@ -8,14 +8,9 @@ public class Gun : MonoBehaviour
     private float zoomFOV;
 
     // Use this for initialization
-    void Start()
+    void Start() 
     {
         zoomFOV = Constants.CameraDefaultZoom / zoomFactor;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 
     void Zoom()

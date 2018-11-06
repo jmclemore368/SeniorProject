@@ -31,9 +31,4 @@ public class PickupSpawnPoint : MonoBehaviour {
     {
         StartCoroutine("respawnPickup");
     }
-
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

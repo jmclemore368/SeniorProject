@@ -15,16 +15,6 @@ public class AlienSpawnPoint : MonoBehaviour {
         healthBonus += 1 * timesSpawned;
         GameObject alien = Instantiate(aliens[Random.Range(0, aliens.Length)]);
         alien.transform.position = transform.position;
-        alien.GetComponent<Health>().startingHealth += healthBonus;
+        alien.GetComponent<Health>().ChangeHealth(healthBonus); 
     }
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

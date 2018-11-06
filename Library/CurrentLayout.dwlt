@@ -109,7 +109,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 492}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
-  controlID: 1328
+  controlID: 1339
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 1329
+  controlID: 1267
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 221}
   m_MaxSize: {x: 8006, y: 4021}
   vertical: 0
-  controlID: 1330
+  controlID: 1268
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -210,7 +210,7 @@ MonoBehaviour:
   - {fileID: 15}
   - {fileID: 16}
   m_Selected: 0
-  m_LastSelected: 2
+  m_LastSelected: 1
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -369,23 +369,23 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 4efaffff
-    m_LastClickedID: -1458
-    m_ExpandedIDs: 36faffff70faffffe6fbffff00000000
+    m_SelectedIDs: 18270000
+    m_LastClickedID: 10008
+    m_ExpandedIDs: e6fbffff000000008c2300006c250000a826000066280000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Pistol
+      m_OriginalName: Pistol
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 9158
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 0
       m_ClientGUIView: {fileID: 8}
     m_SearchString: 
@@ -674,9 +674,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 119}
-    m_SelectedIDs: 1e0c0000
-    m_LastClickedID: 3102
-    m_ExpandedIDs: 00000000b40a0000d60a0000200b0000380b0000fc0d0000920e00004a1200004c130000a21300004c1500003c170000ac180000bc180000941c000020200000bc210000524e0000544e0000564e0000584e00005a4e00005c4e00005e4e0000604e000000ca9a3b
+    m_SelectedIDs: 220c0000
+    m_LastClickedID: 3106
+    m_ExpandedIDs: 00000000b80a0000da0a0000240b00003c0b0000000e0000960e00004e12000050130000a61300005015000040170000b0180000c0180000981c000024200000c0210000964f0000984f00009a4f00009c4f00009e4f0000a04f0000a24f0000a44f000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -704,7 +704,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000b40a0000d60a0000200b0000380b0000fc0d0000920e00004a1200004c130000a21300004c1500003c170000ac180000bc180000941c000020200000bc210000524e0000544e0000564e0000584e00005a4e00005c4e00005e4e0000604e000000ca9a3b
+    m_ExpandedIDs: 00000000b80a0000da0a0000240b00003c0b0000000e0000960e00004e12000050130000a61300005015000040170000b0180000c0180000981c000024200000c0210000964f0000984f00009a4f00009c4f00009e4f0000a04f0000a24f0000a44f000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

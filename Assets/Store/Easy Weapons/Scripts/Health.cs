@@ -47,14 +47,20 @@ public class Health : MonoBehaviour
         }
 	}
 
-
-
 	// Use this for initialization
 	void Start()
 	{
-		// Initialize the currentHealth variable to the value specified by the user in startingHealth
 		currentHealth = startingHealth;
 	}
+
+
+    public void ChangeHealth(int bonus) {
+        currentHealth += bonus;
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+    }
 
     public void ChangeHealth(DamageInfo damageInfo)
 	{

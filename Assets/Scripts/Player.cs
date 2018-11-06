@@ -7,16 +7,6 @@ public class Player : MonoBehaviour {
     public WeaponSystem weaponSystem;
     public Health health;
 
-	// Use this for initialization
-	void Start () {
-
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        
-	}
-
     public bool pickupItem(int pickupType) {
         switch (pickupType)
         {
