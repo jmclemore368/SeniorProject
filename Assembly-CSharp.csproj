@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\DamageInfo.cs" />
     <Compile Include="Assets\Scripts\DeathAlien.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
+    <Compile Include="Assets\Scripts\GameUI.cs" />
     <Compile Include="Assets\Scripts\NewAlien.cs" />
     <Compile Include="Assets\Scripts\Pickup.cs" />
     <Compile Include="Assets\Scripts\PickupSpawnPoint.cs" />
@@ -171,6 +172,17 @@
     <Compile Include="Assets\Store\Standard Assets\Utility\WaypointCircuit.cs" />
     <Compile Include="Assets\Store\Standard Assets\Utility\WaypointProgressTracker.cs" />
     <Compile Include="Assets\Store\Teleportation Pad\CustomTeleporter.cs" />
+    <Compile Include="Assets\Store\UISample\Scripts\ActiveStateToggler.cs" />
+    <Compile Include="Assets\Store\UISample\Scripts\ApplicationManager.cs" />
+    <Compile Include="Assets\Store\UISample\Scripts\ChangeColor.cs" />
+    <Compile Include="Assets\Store\UISample\Scripts\DragMe.cs" />
+    <Compile Include="Assets\Store\UISample\Scripts\DragPanel.cs" />
+    <Compile Include="Assets\Store\UISample\Scripts\DropMe.cs" />
+    <Compile Include="Assets\Store\UISample\Scripts\PanelManager.cs" />
+    <Compile Include="Assets\Store\UISample\Scripts\ResizePanel.cs" />
+    <Compile Include="Assets\Store\UISample\Scripts\ScrollDetailTexture.cs" />
+    <Compile Include="Assets\Store\UISample\Scripts\ShowSliderValue.cs" />
+    <Compile Include="Assets\Store\UISample\Scripts\TiltWindow.cs" />
     <None Include="Assets\Store\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
     <None Include="Assets\Store\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
     <None Include="Assets\Store\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
@@ -195,8 +207,10 @@
     <None Include="Assets\Store\Standard Assets\Effects\ImageEffects\Shaders\FisheyeShader.shader" />
     <None Include="Assets\Store\Easy Weapons\Readme.txt" />
     <None Include="Assets\Store\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Apply.shader" />
+    <None Include="Assets\Store\UISample\Fonts\Jupiter\LICENSE.txt" />
     <None Include="Assets\Store\Standard Assets\Effects\ImageEffects\Shaders\frag_ao.cginc" />
     <None Include="Assets\Store\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfField34.shader" />
+    <None Include="Assets\Store\UISample\Textures and Sprites\SF UI\Background\LICENSE.txt" />
     <None Include="Assets\Store\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\MobileBlur.shader" />
     <None Include="Assets\Store\Standard Assets\Effects\ImageEffects\Shaders\SSAOShader.shader" />
     <None Include="Assets\Store\Standard Assets\Effects\ImageEffects\Shaders\ConvertDepth.shader" />
@@ -212,6 +226,7 @@
     <None Include="Assets\Store\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionSelective.shader" />
     <None Include="Assets\Store\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\Bokeh34.shader" />
     <None Include="Assets\Store\Standard Assets\Effects\ImageEffects\Shaders\CameraMotionBlurDX11.shader" />
+    <None Include="Assets\Store\UISample\Materials\UI-Default-No-Alpha.shader" />
     <None Include="Assets\Store\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\SeparableBlurPlus.shader" />
     <None Include="Assets\Store\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\MultiPassHollywoodFlares.shader" />
     <None Include="Assets\Store\Standard Assets\Effects\ImageEffects\Shaders\BlurEffectConeTaps.shader" />
