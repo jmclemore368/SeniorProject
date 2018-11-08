@@ -218,6 +218,7 @@ public class Weapon : MonoBehaviour
             return false;
         }
         ammoReserve = ammoCapacity;
+        SendMessageUpwards("SetPlayerPickup", "Picked up Ammo!");
         return true;
     }
 
@@ -293,6 +294,15 @@ public class Weapon : MonoBehaviour
 	// Update is called once per frame
 	void Update()
     {
+
+        if (playerWeapon) {
+            string ammoMsg = "Ammo: " + currentAmmo + " / " + ammoCapacity;
+            SendMessageUpwards("SetPlayerAmmo", ammoMsg);
+
+            string reserveMsg = "Reserve: " + ammoReserve;
+            SendMessageUpwards("SetPlayerReserve", reserveMsg);
+        }
+
 		// Calculate the current accuracy for this weapon
 		currentAccuracy = Mathf.Lerp(currentAccuracy, accuracy, accuracyRecoverRate * Time.deltaTime);
 
@@ -573,6 +583,7 @@ public class Weapon : MonoBehaviour
 		}
 
 		// Ammo Display
+        /*
 		if (showCurrentAmmo)
 		{
             if (type == WeaponType.Raycast || type == WeaponType.Projectile)
@@ -582,7 +593,7 @@ public class Weapon : MonoBehaviour
             }
 			else if (type == WeaponType.Beam)
 				GUI.Label(new Rect(10, Screen.height - 30, 100, 20), "Heat: " + (int)(beamHeat * 100) + "/" + (int)(maxBeamHeat * 100));
-		}
+		}*/
 
 	}
 

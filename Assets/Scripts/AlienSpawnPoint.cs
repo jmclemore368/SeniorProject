@@ -12,7 +12,8 @@ public class AlienSpawnPoint : MonoBehaviour {
     public void SpawnAlien()
     {
         timesSpawned++;
-        healthBonus += 1 * timesSpawned;
+        healthBonus += 100 * timesSpawned;
+        Debug.Log("Spawning Alien with Health Bonus of: " + healthBonus);
         GameObject alien = Instantiate(aliens[Random.Range(0, aliens.Length)]);
         alien.transform.position = transform.position;
         alien.GetComponent<Health>().ChangeHealth(healthBonus); 

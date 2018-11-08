@@ -27,25 +27,31 @@ public class Health : MonoBehaviour
 
 	private bool dead = false;					// Used to make sure the Die() function isn't called twice
 
+
     private float armor = 100.0f;
     private float maxArmor = 500.0f;
+
+    public float getCurrentHealth() {
+        return currentHealth;
+    }
+
+    public float getArmor() {
+        return armor;
+    }
+
     public bool PickupArmor()
     {
         if (armor >= maxArmor) {
             return false;
         }
         armor = maxArmor;
+        if (isPlayer)
+        {
+            SendMessageUpwards("SetPlayerPickup", "Picked up Armor!");
+            SendMessageUpwards("SetPlayerArmor", (int) armor);
+        }
         return true;
     }
-
-
-	private void OnGUI()
-	{
-        if (isPlayer) {
-            GUI.Label(new Rect(10, Screen.height - 80, 100, 20), "Health: " + (int) currentHealth);
-            GUI.Label(new Rect(10, Screen.height - 60, 100, 20), "Armor: " + (int) armor);
-        }
-	}
 
 	// Use this for initialization
 	void Start()
@@ -64,8 +70,6 @@ public class Health : MonoBehaviour
 
     public void ChangeHealth(DamageInfo damageInfo)
 	{
-        Debug.Log(transform.root + " hit by " + damageInfo.from + " for " + damageInfo.amount);
-
         // Change the health by the amount specified in the amount variable
         if (armor > 0)
         {
@@ -85,6 +89,12 @@ public class Health : MonoBehaviour
 		// Make sure that the health never exceeds the maximum health
         else if (currentHealth > maxHealth) {
             currentHealth = maxHealth;
+        }
+
+        if (isPlayer)
+        {
+            SendMessageUpwards("SetPlayerArmor", (int) armor);
+            SendMessageUpwards("SetPlayerHealth", Mathf.Max(0, (int) currentHealth));
         }
 
         // Play hit animation
