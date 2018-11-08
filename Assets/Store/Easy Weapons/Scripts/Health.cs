@@ -28,7 +28,7 @@ public class Health : MonoBehaviour
 	private bool dead = false;					// Used to make sure the Die() function isn't called twice
 
 
-    private float armor = 100.0f;
+    private float armor = 0.0f;
     private float maxArmor = 500.0f;
 
     public float getCurrentHealth() {
@@ -60,17 +60,17 @@ public class Health : MonoBehaviour
 	}
 
 
-    public void ChangeHealth(int bonus) {
-        currentHealth += bonus;
-        if (currentHealth > maxHealth)
-        {
-            currentHealth = maxHealth;
-        }
+    public void SetStartingHealth(int newStartingHealth) {
+        startingHealth = Mathf.Min(newStartingHealth, maxHealth);
     }
 
     public void ChangeHealth(DamageInfo damageInfo)
 	{
-        // Change the health by the amount specified in the amount variable
+
+        // Armor does not play nice with Alien
+        Debug.Log(this + " with health " + currentHealth + " hit by "
+                  + damageInfo.from + " for " + damageInfo.amount);
+
         if (armor > 0)
         {
             float diff = armor + damageInfo.amount;

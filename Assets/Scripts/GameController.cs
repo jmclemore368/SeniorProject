@@ -15,22 +15,15 @@ public class GameController : MonoBehaviour {
     public int waveCountdown;
     public bool isGameOver;
 
-
-    public GameController getGameController() {
-        return singleton;
-    }
-
     void Start()
     {
         singleton = this;
-
         StartCoroutine("increaseScoreEachSecond");
         isGameOver = false;
         Time.timeScale = 1;
         waveCountdown = 30;
         enemiesLeft = 0;
         StartCoroutine("updateWaveTimer");
-
         SpawnAliens();
 
     }

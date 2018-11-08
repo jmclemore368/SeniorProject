@@ -4,17 +4,15 @@ using UnityEngine;
 
 public class NewAlien : MonoBehaviour {
     
-    public int firingRange; // How far the alien must be before shooting its gun
-    public float firingRate; // How fast the alien can fire its gun
+    public int firingRange;
+    public float firingRate;
     private float timeLastFired;
-    UnityEngine.AI.NavMeshAgent agent; // Ref to the NavMesh Agent component ******
-    private Transform player; // Ref to the player which the alien tries to find ******
-    public Animator alien; // For playing animations
-    public GameObject weapon; // To fire weapon
-
+    UnityEngine.AI.NavMeshAgent agent;
+    private Transform player;
+    public Animator alien;
+    public GameObject weapon;
     private Health health;
-
-    private string[] getHitAnimations = { "hitRight", "hitLeft"};
+    private string[] getHitAnimations = { "hitRight", "hitLeft" };
 
 	// Use this for initialization
 	void Start () {

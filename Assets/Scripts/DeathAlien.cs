@@ -9,9 +9,7 @@ public class DeathAlien : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         alien.Play("dead");
-
         GameController.RemoveEnemy();
-
         StartCoroutine("DestroyAlien");
 
 	}
