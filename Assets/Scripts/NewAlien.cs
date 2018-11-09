@@ -17,7 +17,7 @@ public class NewAlien : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player").transform; // error if find ret null
         health = GetComponent<Health>();
 	}
 	
