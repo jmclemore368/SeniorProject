@@ -1,19 +1,32 @@
 ﻿<Properties StartupConfiguration="{3CDED23E-B2AF-276A-C6C2-EFEEA704A3D7}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/AlienSpawnPoint.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Store/Easy Weapons/Scripts/Health.cs">
     <Files>
       <File FileName="Assets/Scripts/GameUI.cs" Line="77" Column="44" />
-      <File FileName="Assets/Scripts/PickupSpawnPoint.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/NewAlien.cs" Line="27" Column="41" />
-      <File FileName="Assets/Scripts/AlienSpawnPoint.cs" Line="20" Column="2" />
-      <File FileName="Assets/Store/Easy Weapons/Scripts/Health.cs" Line="76" Column="51" />
+      <File FileName="Assets/Scripts/PickupSpawnPoint.cs" Line="29" Column="27" />
+      <File FileName="Assets/Scripts/NewAlien.cs" Line="46" Column="3" />
+      <File FileName="Assets/Scripts/AlienSpawnPoint.cs" Line="14" Column="24" />
+      <File FileName="Assets/Store/Easy Weapons/Scripts/Health.cs" Line="116" Column="20" />
       <File FileName="Assets/Store/UISample/Scripts/ApplicationManager.cs" Line="22" Column="1" />
       <File FileName="Assets/Store/UISample/Scripts/DragPanel.cs" Line="1" Column="1" />
       <File FileName="Assets/Store/UISample/Scripts/DropMe.cs" Line="1" Column="1" />
       <File FileName="Assets/Store/UISample/Scripts/PanelManager.cs" Line="1" Column="1" />
       <File FileName="Assets/Store/UISample/Scripts/ResizePanel.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Player.cs" Line="49" Column="1" />
-      <File FileName="Assets/Scripts/GameController.cs" Line="11" Column="1" />
+      <File FileName="Assets/Scripts/Player.cs" Line="23" Column="6" />
+      <File FileName="Assets/Scripts/GameController.cs" Line="46" Column="29" />
+      <File FileName="Assets/Scripts/Pickup.cs" Line="20" Column="1" />
+      <File FileName="Assets/Scripts/DeathAlien.cs" Line="16" Column="2" />
+      <File FileName="Assets/Scripts/Constants.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/DamageInfo.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Gun.cs" Line="1" Column="1" />
+      <File FileName="Assets/Store/Easy Weapons/Scripts/Weapon.cs" Line="350" Column="19" />
+      <File FileName="Assets/Store/Easy Weapons/Scripts/WeaponSystem.cs" Line="21" Column="10" />
+      <File FileName="Assets/Store/Easy Weapons/Scripts/Explosion.cs" Line="1" Column="1" />
+      <File FileName="Assets/Store/Easy Weapons/Scripts/Projectile.cs" Line="1" Column="1" />
+      <File FileName="Assets/Store/Easy Weapons/Scripts/SlowMotion.cs" Line="1" Column="1" />
+      <File FileName="Assets/Store/Easy Weapons/Scripts/Spawner.cs" Line="1" Column="1" />
+      <File FileName="Assets/Store/Easy Weapons/Scripts/TimedObjectDestroyer.cs" Line="1" Column="1" />
+      <File FileName="Assets/Store/Easy Weapons/Scripts/BulletHolePool.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

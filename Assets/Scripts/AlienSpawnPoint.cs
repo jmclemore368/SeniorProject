@@ -6,8 +6,8 @@ public class AlienSpawnPoint : MonoBehaviour {
 
     [SerializeField]
     GameObject[] aliens;
-    private int timesSpawned;
-    private int healthBonus = 0; // Increase health each wave to make harder
+    private int timesSpawned; // Wave #
+    private int healthBonus = 0;
 
     public void SpawnAlien()
     {

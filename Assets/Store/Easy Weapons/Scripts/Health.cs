@@ -29,6 +29,7 @@ public class Health : MonoBehaviour
 
 
     private float armor = 0.0f;
+
     private float maxArmor = 500.0f;
 
     public float getCurrentHealth() {
@@ -66,7 +67,6 @@ public class Health : MonoBehaviour
 
     public void ChangeHealth(DamageInfo damageInfo)
 	{
-
         // Armor does not play nice with Alien
         Debug.Log(this + " with health " + currentHealth + " hit by "
                   + damageInfo.from + " for " + damageInfo.amount);
@@ -121,6 +121,7 @@ public class Health : MonoBehaviour
         // Edge case - Kill each other then there is no camera
         // Also pose not always working
         ======= */
+        /*
         if (from != null && from != GameObject.FindWithTag("Player"))
         {
             deathCam = from.GetComponentInChildren<Camera>().gameObject;
@@ -129,6 +130,7 @@ public class Health : MonoBehaviour
 
 		if (isPlayer && deathCam != null)
 			deathCam.SetActive(true);
+        */
 
 		// Remove this GameObject from the scene
 		Destroy(gameObject);
