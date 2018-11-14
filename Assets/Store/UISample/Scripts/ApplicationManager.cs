@@ -7,6 +7,7 @@ public class ApplicationManager : MonoBehaviour {
 
     public void StartGame()
     {
+        Time.timeScale = 0;
         SceneManager.LoadScene("NewMain");
     }
 

@@ -1,8 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
+
+
+    public GameObject gameOverPanel;
 
     private static GameController singleton;
     [SerializeField]
@@ -14,6 +19,39 @@ public class GameController : MonoBehaviour {
     public int score;
     public int waveCountdown;
     public bool isGameOver;
+
+
+    public void OnGUI()
+    {
+        if (isGameOver && Cursor.visible == false)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+    }
+    public void GameOver()
+    {
+        isGameOver = true;
+        //Time.timeScale = 0; - pauses the game, but now main menu won't load anim
+        gameOverPanel.SetActive(true);
+    }
+    public void RestartGame()
+    {
+        SceneManager.LoadScene("NewMain");
+        gameOverPanel.SetActive(true);
+    }
+    public void Exit()
+    {
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #else
+        Application.Quit();
+        #endif
+    }
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("NewMainMenu");
+    }
 
     void Start()
     {

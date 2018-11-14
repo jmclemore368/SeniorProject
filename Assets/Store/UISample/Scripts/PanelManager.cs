@@ -19,8 +19,8 @@ public class PanelManager : MonoBehaviour {
 	{
 		m_OpenParameterId = Animator.StringToHash (k_OpenTransitionName);
 
-		if (initiallyOpen == null)
-			return;
+        if (initiallyOpen == null) 
+            return;
 
 		OpenPanel(initiallyOpen);
 	}

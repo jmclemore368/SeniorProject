@@ -27,10 +27,11 @@ public class Health : MonoBehaviour
 
 	private bool dead = false;					// Used to make sure the Die() function isn't called twice
 
-
     private float armor = 0.0f;
 
     private float maxArmor = 500.0f;
+
+    public GameController gameController;
 
     public float getCurrentHealth() {
         return currentHealth;
@@ -110,12 +111,17 @@ public class Health : MonoBehaviour
 		// This GameObject is officially dead.  This is used to make sure the Die() function isn't called again
 		dead = true;
 
+
+
 		if (replaceWhenDead)
 			Instantiate(deadReplacement, transform.position, transform.rotation);
 		if (makeExplosion)
 			Instantiate(explosion, transform.position, transform.rotation);
-
-
+        if (isPlayer)
+            gameController.GameOver();
+        if (deathCam != null)
+            deathCam.SetActive(true);
+        
         // Set death cam to the killer
         /* ======
         // Edge case - Kill each other then there is no camera
@@ -127,12 +133,11 @@ public class Health : MonoBehaviour
             deathCam = from.GetComponentInChildren<Camera>().gameObject;
             gameObject.GetComponentInChildren<Weapon>().showCrosshair = false;
         }
-
-		if (isPlayer && deathCam != null)
-			deathCam.SetActive(true);
         */
 
 		// Remove this GameObject from the scene
 		Destroy(gameObject);
+
+
 	}
 }
