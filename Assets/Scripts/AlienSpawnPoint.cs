@@ -9,12 +9,17 @@ public class AlienSpawnPoint : MonoBehaviour {
     private int timesSpawned; // Wave #
     private int healthBonus = 0;
 
-    public void SpawnAlien()
+
+	public void SpawnAlien()
     {
         timesSpawned++;
         healthBonus += 100 * timesSpawned;
         GameObject alien = Instantiate(aliens[Random.Range(0, aliens.Length)]);
         alien.transform.position = transform.position;
-        alien.GetComponent<Health>().SetStartingHealth(healthBonus); 
+
+        Health alienHealth = alien.GetComponent<Health>();
+        alienHealth.SetStartingHealth(
+            (int)alienHealth.getStartingHealth() + healthBonus
+        );
     }
 }

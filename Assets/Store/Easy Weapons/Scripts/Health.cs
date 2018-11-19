@@ -33,6 +33,12 @@ public class Health : MonoBehaviour
 
     public GameController gameController;
 
+
+    public float getStartingHealth()
+    {
+        return startingHealth;
+    }
+
     public float getCurrentHealth() {
         return currentHealth;
     }
@@ -100,7 +106,7 @@ public class Health : MonoBehaviour
 
         // Play hit animation
         if (currentHealth > 0 && !dead) {
-            SendMessageUpwards("getHit", SendMessageOptions.DontRequireReceiver);
+            SendMessageUpwards("playNextGetHit", SendMessageOptions.DontRequireReceiver);
         }
 	}
 

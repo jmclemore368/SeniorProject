@@ -62,13 +62,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\AlienSpawnPoint.cs" />
+    <Compile Include="Assets\Scripts\BehaviorAlien.cs" />
+    <Compile Include="Assets\Scripts\BehaviorEnemy.cs" />
+    <Compile Include="Assets\Scripts\BehaviorInsect.cs" />
     <Compile Include="Assets\Scripts\Constants.cs" />
+    <Compile Include="Assets\Scripts\ControllerEnemy.cs" />
     <Compile Include="Assets\Scripts\DamageInfo.cs" />
-    <Compile Include="Assets\Scripts\DeathAlien.cs" />
+    <Compile Include="Assets\Scripts\DeathReplaceAlien.cs" />
+    <Compile Include="Assets\Scripts\DeathReplaceInsect.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\GameUI.cs" />
     <Compile Include="Assets\Scripts\Gun.cs" />
-    <Compile Include="Assets\Scripts\NewAlien.cs" />
     <Compile Include="Assets\Scripts\Pickup.cs" />
     <Compile Include="Assets\Scripts\PickupSpawnPoint.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
