@@ -68,6 +68,7 @@ public class GameController : MonoBehaviour {
 
     void Start()
     {
+        Debug.Log("STARTING");
         singleton = this;
         StartCoroutine("increaseScoreEachSecond");
         isGameOver = false;
