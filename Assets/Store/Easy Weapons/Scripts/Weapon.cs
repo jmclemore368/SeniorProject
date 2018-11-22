@@ -592,7 +592,7 @@ public class Weapon : MonoBehaviour
                 GUI.Label(new Rect(10, Screen.height - 20, 100, 20), "Backup: " + ammoReserve);
             }
 			else if (type == WeaponType.Beam)
-				GUI.Label(new Rect(10, Screen.height - 30, 100, 20), "Heat: " + (int)(beamHeat * 100) + "/" + (int)(maxBeamHeat * 100));
+				GUI.Label(new Rect(10, Screen.height - 60, 100, 20), "Heat: " + (int)(beamHeat * 100) + "/" + (int)(maxBeamHeat * 100));
 		}*/
 
 	}

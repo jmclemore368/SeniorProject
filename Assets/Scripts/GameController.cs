@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
-
+    public GameObject space;
     public GameObject gameOverPanel;
 
     private static GameController singleton;
@@ -34,7 +34,20 @@ public class GameController : MonoBehaviour {
         isGameOver = true;
         //Time.timeScale = 0; - pauses the game, but now main menu won't load anim
         gameOverPanel.SetActive(true);
+        space.SetActive(true);
+        stopAllSound();
+        space.GetComponent<AudioSource>().Play();
     }
+
+    private void stopAllSound() {
+        AudioSource[] allAudioSources = FindObjectsOfType(typeof(AudioSource)) as AudioSource[];
+        foreach (AudioSource audioSource in allAudioSources)
+        {
+            audioSource.Stop();
+        }
+
+    }
+
     public void RestartGame()
     {
         SceneManager.LoadScene("NewMain");
