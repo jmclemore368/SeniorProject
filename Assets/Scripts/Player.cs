@@ -15,6 +15,8 @@ public class Player : MonoBehaviour {
                 return weaponSystem.PickupAmmo();
             case 1:
                 return health.PickupArmor();
+            case 2:
+                return health.PickupHealth();
             default:
                 Debug.LogError("Bad pickup type: " + pickupType);
                 break;

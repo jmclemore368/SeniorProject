@@ -10,6 +10,7 @@ public class Pickup : MonoBehaviour {
     {
         if (collider.gameObject.GetComponent<Player>() != null)
         {
+            Debug.Log("COLLIDING WITH :" + type);
             if (collider.gameObject.GetComponent<Player>().pickupItem(type)) {
                 GetComponentInParent<PickupSpawnPoint>().didPickup();
                 Destroy(gameObject);

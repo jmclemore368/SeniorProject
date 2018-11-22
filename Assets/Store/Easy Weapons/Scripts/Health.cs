@@ -61,6 +61,21 @@ public class Health : MonoBehaviour
         return true;
     }
 
+    public bool PickupHealth()
+    {
+        if (currentHealth >= maxHealth)
+        {
+            return false;
+        }
+        currentHealth = maxHealth;
+        if (isPlayer)
+        {
+            SendMessageUpwards("SetPlayerPickup", "Picked up Health!");
+            SendMessageUpwards("SetPlayerHealth", (int) currentHealth);
+        }
+        return true;
+    }
+
 	// Use this for initialization
 	void Start()
 	{
