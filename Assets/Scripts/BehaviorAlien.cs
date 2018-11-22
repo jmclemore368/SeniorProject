@@ -27,8 +27,8 @@ public class BehaviorAlien : BehaviorEnemy
         bool enemyIsWithinAttackRange = distanceToPlayer < attackRange;
         float timeSinceLastAttack = Time.time - lastAttackTime;
         bool enemyCanAttackAgain = timeSinceLastAttack > attackRate;
-
-        if (enemyIsWithinAttackRange && enemyCanAttackAgain) {
+        bool enemyCanSeePlayer = PlayerIsInLineOfSight();
+        if (enemyIsWithinAttackRange && enemyCanAttackAgain && enemyCanSeePlayer) {
             lastAttackTime = Time.time;
             weapon.GetComponent<Weapon>().AIFiring();
             enemyAnimator.Play("fire");
@@ -43,5 +43,19 @@ public class BehaviorAlien : BehaviorEnemy
         getHitAnimations[n] = getHitAnimations[0];
         getHitAnimations[0] = randomAnim;
     }
-    //
+
+    public bool PlayerIsInLineOfSight() {
+        Vector3 direction = player.position - transform.position;
+        Ray ray = new Ray(transform.position, direction);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, 9999.0f))
+        {
+            if (hit.transform == player) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

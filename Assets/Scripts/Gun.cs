@@ -15,7 +15,6 @@ public class Gun : MonoBehaviour
 
     void Zoom()
     {
-        Debug.Log("TIME IS: " + Time.deltaTime);
         Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, zoomFOV, 
                                              Constants.zoomSpeed * Time.deltaTime);
     }
