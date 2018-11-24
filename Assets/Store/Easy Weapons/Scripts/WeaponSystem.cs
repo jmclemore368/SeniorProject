@@ -13,6 +13,7 @@ public class WeaponSystem : MonoBehaviour
 	public GameObject[] weapons;				// The array that holds all the weapons that the player has
 	public int startingWeaponIndex = 0;			// The weapon index that the player will start with
 	private int weaponIndex;					// The current index of the active weapon
+    public GameUI gameUI;
 
     public bool PickupAmmo() 
     {
@@ -96,7 +97,19 @@ public class WeaponSystem : MonoBehaviour
 
 		// Activate the one weapon that we want
 		weapons[index].SetActive(true);
+
+        if (weapons[index].tag == "Launcher") {
+            gameUI.EnableWarmupText();
+        } else {
+            gameUI.DisableWarmupText();
+        }
 	}
+
+    public void SetPlayerWarmup(int percentage)
+    {
+        gameUI.SetWarmupText(percentage);
+    }
+
 
 	public void NextWeapon()
 	{

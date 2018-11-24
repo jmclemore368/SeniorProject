@@ -35,6 +35,14 @@ public class GameController : MonoBehaviour {
         //Time.timeScale = 0; - pauses the game, but now main menu won't load anim
         gameOverPanel.SetActive(true);
         space.SetActive(true);
+
+        // Disable text 
+        gameUI.DisableWarmupText();
+        gameUI.DisableBottomLeftBar();
+        gameUI.DisableTopLeftBar();
+        gameUI.DisableTopRightBar();
+
+        // Stop all sound and play game over music
         stopAllSound();
         space.GetComponent<AudioSource>().Play();
     }

@@ -26,7 +26,19 @@ public class GameUI : MonoBehaviour {
     [SerializeField]
     private Text newWaveText;
     [SerializeField]
+    private Text warmupText;
+    [SerializeField]
+    private GameObject bottomLeftBar;
+    [SerializeField]
+    private GameObject topRightBar;
+    [SerializeField]
+    private GameObject topLeftBar;
+
+
+    [SerializeField]
     Player player;
+
+
 
 	// Use this for initialization
 	void Start () {
@@ -77,6 +89,39 @@ public class GameUI : MonoBehaviour {
         yield return new WaitForSeconds(4);
         waveClearText.GetComponent<Text>().enabled = false;
     }
+
+    public void EnableWarmupText() {
+        warmupText.GetComponent<Text>().enabled = true;
+    }
+
+    public void DisableWarmupText() {
+        warmupText.GetComponent<Text>().enabled = false;
+    }
+
+    public void DisableBottomLeftBar() {
+        bottomLeftBar.GetComponent<Image>().enabled = false;
+        healthText.GetComponent<Text>().enabled = false;
+        armorText.GetComponent<Text>().enabled = false;
+        reserveText.GetComponent<Text>().enabled = false;
+        ammoText.GetComponent<Text>().enabled = false;
+    }
+
+    public void DisableTopRightBar() {
+        topRightBar.GetComponent<Image>().enabled = false;
+        enemyText.GetComponent<Text>().enabled = false;
+    }
+
+    public void DisableTopLeftBar() {
+        topLeftBar.GetComponent<Image>().enabled = false;
+        waveText.GetComponent<Text>().enabled = false;
+    }
+
+
+
+    public void SetWarmupText(int percentage) {
+        warmupText.text = percentage + "%";
+    }
+
     public void SetPickUpText(string text)
     {
         pickupText.GetComponent<Text>().enabled = true;
@@ -86,6 +131,8 @@ public class GameUI : MonoBehaviour {
         StopCoroutine("hidePickupText");
         StartCoroutine("hidePickupText");
     }
+
+
     IEnumerator hidePickupText()
     {
         yield return new WaitForSeconds(4);

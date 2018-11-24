@@ -382,6 +382,12 @@ public class Weapon : MonoBehaviour
 		// Launch a projectile if this is a projectile type weapon and the user presses the fire button
 		if (type == WeaponType.Projectile)
 		{
+
+            // Heat goes over maxWarmup
+            float heatToDisplay = heat > maxWarmup ? maxWarmup : heat;
+            int percentage = (int) (heatToDisplay / maxWarmup * 100);
+            SendMessageUpwards("SetPlayerWarmup", (int) percentage, SendMessageOptions.DontRequireReceiver);
+
 			if (fireTimer >= actualROF && burstCounter < burstRate && canFire)
 			{
 				if (Input.GetButton("Fire1"))
