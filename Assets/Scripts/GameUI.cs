@@ -116,6 +116,17 @@ public class GameUI : MonoBehaviour {
         waveText.GetComponent<Text>().enabled = false;
     }
 
+    public void DisableWaveClear() {
+        // Need to disable whole game object as may be in co-routine
+        waveClearText.enabled = false;
+    }
+
+    public void DisableNewWave()
+    {
+        // Need to disable whole game object as may be in co-routine
+        newWaveText.enabled = false;
+    }
+
 
 
     public void SetWarmupText(int percentage) {

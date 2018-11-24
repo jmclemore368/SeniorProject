@@ -41,6 +41,8 @@ public class GameController : MonoBehaviour {
         gameUI.DisableBottomLeftBar();
         gameUI.DisableTopLeftBar();
         gameUI.DisableTopRightBar();
+        gameUI.DisableWaveClear();
+        gameUI.DisableNewWave();
 
         // Stop all sound and play game over music
         stopAllSound();
