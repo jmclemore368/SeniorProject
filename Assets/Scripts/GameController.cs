@@ -1,118 +1,55 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityStandardAssets.Characters.FirstPerson;
 using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
-
-    public GameObject space;
-    public GameObject gameOverPanel;
+    [SerializeField] SpawnPointEnemy[] spawnPointEnemies;
 
     private static GameController singleton;
-    [SerializeField]
-    AlienSpawnPoint[] alienSpawnPoints;
-    public int enemiesLeft;
 
     public GameUI gameUI;
     public GameObject player;
-    public int score;
-    public int waveCountdown;
-    public bool isGameOver;
+    public GameObject space;
+    public GameObject gameOverPanel;
 
+    private int enemiesLeft = 0;
+    private int waveCountdown = 30;
+    private bool isGameOver = false;
+    private int waveNumber = 1;
 
-    public void OnGUI()
-    {
-        if (isGameOver && Cursor.visible == false)
-        {
+    public void OnGUI() {
+        if (isGameOver && Cursor.visible == false) {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
         }
     }
-    public void GameOver()
-    {
-        isGameOver = true;
-        //Time.timeScale = 0; - pauses the game, but now main menu won't load anim
-        gameOverPanel.SetActive(true);
-        space.SetActive(true);
 
-        // Disable text 
-        gameUI.DisableWarmupText();
-        gameUI.DisableBottomLeftBar();
-        gameUI.DisableTopLeftBar();
-        gameUI.DisableTopRightBar();
-        gameUI.DisableWaveClear();
-        gameUI.DisableNewWave();
-
-        // Stop all sound and play game over music
-        stopAllSound();
-        space.GetComponent<AudioSource>().Play();
-    }
-
-    private void stopAllSound() {
-        AudioSource[] allAudioSources = FindObjectsOfType(typeof(AudioSource)) as AudioSource[];
-        foreach (AudioSource audioSource in allAudioSources)
-        {
-            audioSource.Stop();
-        }
-
-    }
-
-    public void RestartGame()
-    {
-        SceneManager.LoadScene("NewMain");
-        gameOverPanel.SetActive(true);
-    }
-    public void Exit()
-    {
-        #if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-        #else
-        Application.Quit();
-        #endif
-    }
-    public void MainMenu()
-    {
-        SceneManager.LoadScene("NewMainMenu");
-    }
-
-    void Start()
-    {
-        Debug.Log("STARTING");
+    void Start() {
         singleton = this;
-        StartCoroutine("increaseScoreEachSecond");
-        isGameOver = false;
         Time.timeScale = 1;
-        waveCountdown = 30;
-        enemiesLeft = 0;
         StartCoroutine("updateWaveTimer");
-        SpawnAliens();
-
+        gameUI.SetWaveNumberText(waveNumber);
+        SpawnEnemies();
     }
 
-    private void SpawnAliens()
-    {
-        foreach (AlienSpawnPoint alienSpawnPoint in alienSpawnPoints)
-        {
-            alienSpawnPoint.SpawnAlien();
+    private void SpawnEnemies() {
+        foreach (SpawnPointEnemy spawnPointEnemy in spawnPointEnemies) {
+            spawnPointEnemy.SpawnEnemy();
             enemiesLeft++;
         }
         gameUI.SetEnemyText(enemiesLeft);
     }
 
-    private IEnumerator updateWaveTimer()
-    {
-        while (!isGameOver)
-        {
+    private IEnumerator updateWaveTimer() {
+        while (!isGameOver) {
             yield return new WaitForSeconds(1f);
             waveCountdown--;
             gameUI.SetWaveText(waveCountdown);
-            // Spawn next wave and restart count down
-            if (waveCountdown == 0)
-            {
-                SpawnAliens();
+            if (waveCountdown == 0) {
+                SpawnEnemies();
                 waveCountdown = 30;
                 gameUI.ShowNewWaveText();
+                gameUI.SetWaveNumberText(++waveNumber);
             }
         }
     }
@@ -121,27 +58,53 @@ public class GameController : MonoBehaviour {
     {
         singleton.enemiesLeft--;
         singleton.gameUI.SetEnemyText(singleton.enemiesLeft);
-        // Give player bonus for clearing the wave before timer is done
         if (singleton.enemiesLeft == 0)
-        {
-            singleton.score += 50;
-            singleton.gameUI.ShowWaveClearBonus();
-        }
+            singleton.gameUI.ShowWaveClearText();
     }
 
-    public void AddAlienKillToScore()
-    {
-        score += 10;
-        gameUI.SetScoreText(score);
+    public void RestartGame() {
+        SceneManager.LoadScene(Constants.mainGameSceneName);
+        gameOverPanel.SetActive(true);
     }
 
-    IEnumerator increaseScoreEachSecond()
-    {
-        while (!isGameOver)
-        {
-            yield return new WaitForSeconds(1);
-            score += 1;
-            gameUI.SetScoreText(score);
-        }
+    public void Exit() {
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else 
+            Application.Quit();
+        #endif
+    }
+
+    public void MainMenu(){
+        SceneManager.LoadScene(Constants.mainMenuSceneName);
+    }
+
+    public void GameOver() {
+        isGameOver = true;
+        //Time.timeScale = 0; pauses the game, but now main menu won't load anim
+        gameOverPanel.SetActive(true);
+        space.SetActive(true);
+        disableUIComponents();
+        playGameOverMusic();
+    }
+
+    private void disableUIComponents() {
+        gameUI.DisableWarmupText();
+        gameUI.DisableBottomLeftBar();
+        gameUI.DisableTopLeftBar();
+        gameUI.DisableTopRightBar();
+        gameUI.DisableWaveClear();
+        gameUI.DisableNewWave();
+    }
+
+    private void playGameOverMusic() {
+        stopAllSound();
+        space.GetComponent<AudioSource>().Play();
+    }
+
+    private void stopAllSound() {
+        AudioSource[] allAudioSources = FindObjectsOfType(typeof(AudioSource)) as AudioSource[];
+        foreach (AudioSource audioSource in allAudioSources) 
+            audioSource.Stop();
     }
 }

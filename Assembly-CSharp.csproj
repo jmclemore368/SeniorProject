@@ -61,7 +61,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\AlienSpawnPoint.cs" />
     <Compile Include="Assets\Scripts\BehaviorAlien.cs" />
     <Compile Include="Assets\Scripts\BehaviorEnemy.cs" />
     <Compile Include="Assets\Scripts\BehaviorInsect.cs" />
@@ -72,10 +71,11 @@
     <Compile Include="Assets\Scripts\DeathReplaceInsect.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\GameUI.cs" />
-    <Compile Include="Assets\Scripts\Gun.cs" />
     <Compile Include="Assets\Scripts\Pickup.cs" />
-    <Compile Include="Assets\Scripts\PickupSpawnPoint.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\SpawnPointEnemy.cs" />
+    <Compile Include="Assets\Scripts\SpawnPointPickup.cs" />
+    <Compile Include="Assets\Scripts\WeaponScope.cs" />
     <Compile Include="Assets\Store\Easy Weapons\Scripts\BombFragment.cs" />
     <Compile Include="Assets\Store\Easy Weapons\Scripts\BulletHole.cs" />
     <Compile Include="Assets\Store\Easy Weapons\Scripts\BulletHolePool.cs" />

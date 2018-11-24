@@ -1,8 +1,6 @@
 using UnityEngine;
-using System.Collections;
 
-public class BehaviorInsect : BehaviorEnemy
-{
+public class BehaviorInsect : BehaviorEnemy {
     public Animator enemyAnimator;
     private Transform player;
     private AudioSource source;
@@ -11,31 +9,26 @@ public class BehaviorInsect : BehaviorEnemy
     public float attackRate;
     private float lastAttackTime;
     private string[] attackAnimations;
+    private int damage = 50;
 
-    void Start()
-    {
+    void Start() {
         player = GameObject.FindGameObjectWithTag(Constants.playerTag).transform;
         attackAnimations = new string[] { "Walk_Attack", "Walk_Attack2" };
         source = GetComponent<AudioSource>();
     }
 
-    public override void playPose()
-    {
+    public override void playPose() {
         enemyAnimator.Play("Idle");
     }
 
-    public override void playAttack()
-    {
+    public override void playAttack() {
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
         bool enemyIsWithinAttackRange = distanceToPlayer < attackRange;
         float timeSinceLastAttack = Time.time - lastAttackTime;
         bool enemyCanAttackAgain = timeSinceLastAttack > attackRate;
-
-        if (enemyIsWithinAttackRange && enemyCanAttackAgain)
-        {
+        if (enemyIsWithinAttackRange && enemyCanAttackAgain) {
             lastAttackTime = Time.time;
             playAttackHelper();
-           
         }
     }
 
@@ -45,17 +38,17 @@ public class BehaviorInsect : BehaviorEnemy
         enemyAnimator.Play(randomAnim);
         attackAnimations[n] = attackAnimations[0];
         attackAnimations[0] = randomAnim;
-
         source.Play();
-
         player.gameObject.SendMessageUpwards("ChangeHealth",
-                                           new DamageInfo(-50, transform.root.gameObject),
+                                           new DamageInfo(-damage, transform.root.gameObject),
                                            SendMessageOptions.DontRequireReceiver);
     }
 
-    public override void playNextGetHit()
-    {
+    public override void playNextGetHit() {
         enemyAnimator.Play("Walk_GetHit");
-
     }
+
+	public override bool PlayerIsInLineOfSight() {
+        throw new System.NotImplementedException();
+	}
 }

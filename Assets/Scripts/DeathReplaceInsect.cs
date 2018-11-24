@@ -1,22 +1,18 @@
 using System.Collections;
 using UnityEngine;
 
-public class DeathReplaceInsect : MonoBehaviour
-{
+public class DeathReplaceInsect : MonoBehaviour {
     public Animator enemyAnimator;
+    private float deathAnimationLength = 2.5f;
 
-    // Use this for initialization
-    void Start()
-    {
+    void Start() {
         enemyAnimator.Play("Dead");
         GameController.RemoveEnemy();
         StartCoroutine("DestroyInsect");
-
     }
 
-    IEnumerator DestroyInsect()
-    {
-        yield return new WaitForSeconds(2.5f);
+    IEnumerator DestroyInsect() {
+        yield return new WaitForSeconds(deathAnimationLength);
         Destroy(gameObject);
     }
 }

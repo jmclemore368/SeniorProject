@@ -1,8 +1,6 @@
 using UnityEngine;
-using System.Collections;
 
-public class BehaviorAlien : BehaviorEnemy
-{
+public class BehaviorAlien : BehaviorEnemy {
     public Animator enemyAnimator;
     public GameObject weapon;
     private Transform player;
@@ -11,6 +9,8 @@ public class BehaviorAlien : BehaviorEnemy
     public float attackRate;
     private float lastAttackTime;
     private string[] getHitAnimations;
+
+    private float losDistance = 9999.0f;
 
     void Start () {
         player = GameObject.FindGameObjectWithTag(Constants.playerTag).transform;
@@ -21,8 +21,7 @@ public class BehaviorAlien : BehaviorEnemy
         enemyAnimator.Play("pose");
     }
 
-	public override void playAttack()
-	{
+	public override void playAttack() {
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
         bool enemyIsWithinAttackRange = distanceToPlayer < attackRange;
         float timeSinceLastAttack = Time.time - lastAttackTime;
@@ -35,8 +34,7 @@ public class BehaviorAlien : BehaviorEnemy
         }
 	}
 
-    public override void playNextGetHit()
-    {
+    public override void playNextGetHit() {
         int n = Random.Range(1, getHitAnimations.Length);
         string randomAnim = getHitAnimations[n];
         enemyAnimator.Play(randomAnim);
@@ -44,17 +42,13 @@ public class BehaviorAlien : BehaviorEnemy
         getHitAnimations[0] = randomAnim;
     }
 
-    public bool PlayerIsInLineOfSight() {
+    public override bool PlayerIsInLineOfSight() {
         Vector3 direction = player.position - transform.position;
         Ray ray = new Ray(transform.position, direction);
         RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit, 9999.0f))
-        {
-            if (hit.transform == player) {
+        if (Physics.Raycast(ray, out hit, losDistance))
+            if (hit.transform == player)
                 return true;
-            }
-        }
         return false;
     }
 

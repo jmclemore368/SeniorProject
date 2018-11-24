@@ -1,92 +1,70 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GameUI : MonoBehaviour {
 
-    [SerializeField]
-    private Text reserveText;
-    [SerializeField]
-    private Text ammoText;
-    [SerializeField]
-    private Text healthText;
-    [SerializeField]
-    private Text armorText;
-    [SerializeField]
-    private Text scoreText;
-    [SerializeField]
-    private Text pickupText;
-    [SerializeField]
-    private Text waveText;
-    [SerializeField]
-    private Text enemyText;
-    [SerializeField]
-    private Text waveClearText;
-    [SerializeField]
-    private Text newWaveText;
-    [SerializeField]
-    private Text warmupText;
-    [SerializeField]
-    private GameObject bottomLeftBar;
-    [SerializeField]
-    private GameObject topRightBar;
-    [SerializeField]
-    private GameObject topLeftBar;
+    [SerializeField] private Text reserveText;
+    [SerializeField] private Text ammoText;
+    [SerializeField] private Text healthText;
+    [SerializeField] private Text armorText;
+    [SerializeField] private Text waveNumberText;
+    [SerializeField] private Text pickupText;
+    [SerializeField] private Text waveText;
+    [SerializeField] private Text enemyText;
+    [SerializeField] private Text waveClearText;
+    [SerializeField] private Text newWaveText;
+    [SerializeField] private Text warmupText;
+    [SerializeField] private GameObject bottomLeftBar;
+    [SerializeField] private GameObject topRightBar;
+    [SerializeField] private GameObject topLeftBar;
+    [SerializeField] Player player;
+    private int messageTimeLength = 3; 
 
-
-    [SerializeField]
-    Player player;
-
-
-
-	// Use this for initialization
-	void Start () {
-        SetArmorText((int) player.health.getArmor());
-        SetHealthText((int) player.health.startingHealth);
+	void Start() {
+        int playerArmor = (int) player.health.getArmor();
+        int playerHealth = (int) player.health.getStartingHealth();
+        SetArmorText(playerArmor);
+        SetHealthText(playerHealth);
 	}
 	
-    public void SetArmorText(int armor)
-    {
+    public void SetArmorText(int armor) {
         armorText.text = "Armor: " + armor;
     }
-    public void SetHealthText(int health)
-    {
+
+    public void SetHealthText(int health) {
         healthText.text = "Health: " + health;
     }
-    public void SetAmmoText(int ammo)
-    {
+
+    public void SetAmmoText(int ammo) {
         ammoText.text = "Ammo: " + ammo;
     }
-    public void SetAmmoText(string ammo)
-    {
+
+    public void SetAmmoText(string ammo) {
         ammoText.text = ammo;
     }
-    public void SetReserveText(string reserve)
-    {
+
+    public void SetReserveText(string reserve) {
         reserveText.text = reserve;
     }
-    public void SetScoreText(int score)
-    {
-        scoreText.text = "" + score;
-    }
-    public void SetWaveText(int time)
-    {
-        waveText.text = "Next Wave: " + time;
-    }
-    public void SetEnemyText(int enemies)
-    {
-        enemyText.text = "Enemies: " + enemies;
+
+    public void SetWaveNumberText(int waveNumber) {
+        waveNumberText.text = "" + waveNumber;
     }
 
-    public void ShowWaveClearBonus()
-    {
-        waveClearText.GetComponent<Text>().enabled = true;
-        StartCoroutine("hideWaveClearBonus");
+    public void SetWaveText(int time) {
+        waveText.text = "Next Wave: " + time;
     }
-    IEnumerator hideWaveClearBonus()
-    {
-        yield return new WaitForSeconds(4);
+
+    public void SetEnemyText(int enemies) {
+        enemyText.text = "Enemies: " + enemies;
+    }
+    public void ShowWaveClearText() {
+        waveClearText.GetComponent<Text>().enabled = true;
+        StartCoroutine("hideWaveClearText");
+    }
+    IEnumerator hideWaveClearText() {
+        yield return new WaitForSeconds(messageTimeLength);
         waveClearText.GetComponent<Text>().enabled = false;
     }
 
@@ -117,46 +95,36 @@ public class GameUI : MonoBehaviour {
     }
 
     public void DisableWaveClear() {
-        // Need to disable whole game object as may be in co-routine
         waveClearText.enabled = false;
     }
 
-    public void DisableNewWave()
-    {
-        // Need to disable whole game object as may be in co-routine
+    public void DisableNewWave() {
         newWaveText.enabled = false;
     }
-
-
 
     public void SetWarmupText(int percentage) {
         warmupText.text = percentage + "%";
     }
 
-    public void SetPickUpText(string text)
-    {
+    public void SetPickUpText(string text) {
         pickupText.GetComponent<Text>().enabled = true;
-        Debug.Log("setting" + text);
         pickupText.text = text;
-        // Restart the Coroutine so it doesn’t end early
         StopCoroutine("hidePickupText");
         StartCoroutine("hidePickupText");
     }
 
-
-    IEnumerator hidePickupText()
-    {
-        yield return new WaitForSeconds(4);
+    IEnumerator hidePickupText() {
+        yield return new WaitForSeconds(messageTimeLength);
         pickupText.GetComponent<Text>().enabled = false;
     }
-    public void ShowNewWaveText()
-    {
+
+    public void ShowNewWaveText() {
         StartCoroutine("hideNewWaveText");
         newWaveText.GetComponent<Text>().enabled = true;
     }
-    IEnumerator hideNewWaveText()
-    {
-        yield return new WaitForSeconds(4);
+
+    IEnumerator hideNewWaveText() {
+        yield return new WaitForSeconds(messageTimeLength);
         newWaveText.GetComponent<Text>().enabled = false;
     }
 }
