@@ -92,9 +92,6 @@
     <Compile Include="Assets\Store\Easy Weapons\Scripts\TimedObjectDestroyer.cs" />
     <Compile Include="Assets\Store\Easy Weapons\Scripts\Weapon.cs" />
     <Compile Include="Assets\Store\Easy Weapons\Scripts\WeaponSystem.cs" />
-    <Compile Include="Assets\Store\SMC Pack 1\Demo\DemoAssets\V_SMC_Camera.cs" />
-    <Compile Include="Assets\Store\SMC Pack 1\Demo\DemoAssets\V_SMC_Handler.cs" />
-    <Compile Include="Assets\Store\SMC Pack 1\Demo\DemoAssets\V_Text.cs" />
     <Compile Include="Assets\Store\Standard Assets\Characters\FirstPersonCharacter\Scripts\FirstPersonController.cs" />
     <Compile Include="Assets\Store\Standard Assets\Characters\FirstPersonCharacter\Scripts\HeadBob.cs" />
     <Compile Include="Assets\Store\Standard Assets\Characters\FirstPersonCharacter\Scripts\MouseLook.cs" />
@@ -192,7 +189,6 @@
     <None Include="Assets\Store\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
     <None Include="Assets\Store\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
     <None Include="Assets\Store\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
-    <None Include="Assets\Store\Sci-Fi Styled Modular Pack\Readme.txt" />
     <None Include="Assets\Store\Standard Assets\Effects\ImageEffects\Shaders\ShowAlphaChannel.shader" />
     <None Include="Assets\Store\Standard Assets\Effects\ImageEffects\Shaders\SunShaftsComposite.shader" />
     <None Include="Assets\Store\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionCurves.shader" />
